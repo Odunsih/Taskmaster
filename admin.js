@@ -1,6 +1,6 @@
 
 async function fetchMembers() {
-    const response = await fetch('http://localhost:8000/api/v1/admin/users', {
+    const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/admin/users', {
         method: 'GET',
         credentials: 'include',
     });
@@ -29,7 +29,7 @@ async function getTasks(event) {
     if (event) event.preventDefault();
 
     try {
-        const response = await fetch('http://localhost:8000/api/v1/tasks', {
+        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/tasks', {
             method: 'GET',
             credentials: 'include',
         });
@@ -74,7 +74,7 @@ async function editTask(taskId) {
 
     if (newTitle && newDescription) {
         try {
-            const response = await fetch(`http://localhost:8000/api/v1/task/${taskId}`, {
+            const response = await fetch(`https://taskmaster-backend-hfj9hg.fly.dev/api/v1/task/${taskId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ async function deleteTask(taskId) {
 
     if (confirmDelete) {
         try {
-            const response = await fetch(`http://localhost:8000/api/v1/task/${taskId}`, {
+            const response = await fetch(`https://taskmaster-backend-hfj9hg.fly.dev/api/v1/task/${taskId}`, {
                 method: 'DELETE',
                 credentials: 'include',
             });
@@ -140,7 +140,7 @@ async function handleTaskCreation(event) {
     const assignedTo = document.getElementById('assignedTo').value;
 
     try {
-        const response = await fetch('http://localhost:8000/api/v1/task/create', {
+        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/task/create', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ e.preventDefault();
 const email = document.getElementById('email').value;
 
     try {
-        const response = await fetch('http://localhost:8000/api/v1/admin/add-user', {
+        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/admin/add-user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -339,7 +339,7 @@ let allTasks = []; // Declare a global variable to hold all tasks
 
 async function fetchTasks() {
     try {
-        const response = await fetch('http://localhost:8000/api/v1/tasks', {
+        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/tasks', {
             method: 'GET',
             credentials: 'include',
         });
