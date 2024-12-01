@@ -7,7 +7,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('http://localhost:8000/api/v1/register', {
+        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
