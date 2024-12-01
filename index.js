@@ -1,7 +1,7 @@
 
 
 async function loadTasks() {
-    const response = await fetch('http://localhost:8000/api/v1/tasks'); // Assuming you have an endpoint for tasks
+    const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/tasks'); // Assuming you have an endpoint for tasks
     const tasks = await response.json();
  
     const taskList = document.getElementById('task-list');
