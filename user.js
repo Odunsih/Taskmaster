@@ -1,8 +1,10 @@
 let allTasks = []; // Declare a global variable to hold all tasks
+const BASE_URL = Process.env.API_BASE_URL;
+
 
 async function fetchTasks() {
     try {
-        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/tasks', {
+        const response = await fetch(`${BASE_URL}/api/v1/tasks`, {
             method: 'GET',
             credentials: 'include',
         });
@@ -45,7 +47,7 @@ fetchTasks();
 // Fetch and display user profile
 async function fetchUserProfile() {
     try {
-        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/profile', {
+        const response = await fetch(`${BASE_URL}/api/v1/profile`, {
             method: 'GET',
             credentials: 'include',
         });
@@ -69,7 +71,7 @@ document.getElementById('update-profile-form').addEventListener('submit', async 
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/profile', {
+        const response = await fetch(`${BASE_URL}/api/v1/profile`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

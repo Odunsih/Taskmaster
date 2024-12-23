@@ -1,9 +1,11 @@
+const BASE_URL = Process.env.API_BASE_URL;
 
 async function fetchMembers() {
-    const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/admin/users', {
+    const response = await fetch(`${BASE_URL}/api/v1/admin/users`, {
         method: 'GET',
         credentials: 'include',
     });
+
     const data = await response.json();
     const membersList = document.getElementById('members-list');
     const assignedToSelect = document.getElementById('assignedTo');
@@ -29,7 +31,7 @@ async function getTasks(event) {
     if (event) event.preventDefault();
 
     try {
-        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/tasks', {
+        const response = await fetch(`${BASE_URL}/api/v1/tasks`, {
             method: 'GET',
             credentials: 'include',
         });
@@ -74,7 +76,7 @@ async function editTask(taskId) {
 
     if (newTitle && newDescription) {
         try {
-            const response = await fetch(`https://taskmaster-backend-hfj9hg.fly.dev/api/v1/task/${taskId}`, {
+            const response = await fetch(`${BASE_URL}/api/v1/task/${taskId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -107,7 +109,7 @@ async function deleteTask(taskId) {
 
     if (confirmDelete) {
         try {
-            const response = await fetch(`https://taskmaster-backend-hfj9hg.fly.dev/api/v1/task/${taskId}`, {
+            const response = await fetch(`${BASE_URL}/api/v1/task/${taskId}`, {
                 method: 'DELETE',
                 credentials: 'include',
             });
@@ -140,7 +142,7 @@ async function handleTaskCreation(event) {
     const assignedTo = document.getElementById('assignedTo').value;
 
     try {
-        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/task/create', {
+        const response = await fetch(`${BASE_URL}/api/v1/task/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -174,7 +176,7 @@ e.preventDefault();
 const email = document.getElementById('email').value;
 
     try {
-        const response = await fetch('https://taskmaster-backend-hfj9hg.fly.dev/api/v1/admin/add-user', {
+        const response = await fetch(`${BASE_URL}/api/v1/admin/add-user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
