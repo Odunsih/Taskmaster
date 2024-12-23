@@ -1,8 +1,9 @@
 // Handle Registration
+const BASE_URL = 'https://taskmaster-backend-six.vercel.app';
+
 document.getElementById('register-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const BASE_URL = Process.env.API_BASE_URL;
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
